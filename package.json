@@ -1,0 +1,28 @@
+{
+  "name": "typejanact",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "^20.0.2",
+    "@types/node": "^8.0.6",
+    "@types/react": "^15.0.33",
+    "@types/react-dom": "^15.5.1",
+    "@types/react-redux": "^4.4.45",
+    "@types/redux": "^3.6.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-scripts-ts": "2.3.2",
+    "redux": "3.7.1",
+    "redux-devtools-extension": "2.13.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  }
+}
