@@ -4,7 +4,6 @@ import { ClothState } from '../store';
 
 export const clothsActions = {
     addCloth: (cloth: string) => (dispatch: (action: any) => void) => {
-        // debugger;
         dispatch({
             type: 'ADD_CLOTH',
             cloth

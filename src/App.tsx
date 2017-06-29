@@ -4,17 +4,26 @@ import Jeanne from './components/Jeanne';
 import { store } from './store';
 import { clothsActions } from './reducers/cloths';
 
-class App extends React.Component<any, any> {
-  click = () => {
-    console.log('dispatch');
+interface State {
+  value: string;
+}
 
-    const a: any = clothsActions.addCloth('echarpe');
+class App extends React.Component<any, State> {
+  click = () => {
+    const a: any = clothsActions.addCloth(this.state.value);
     store.dispatch(a);
   }
+
+  update = (e: any) => {
+    const value = e.target.value;
+    this.setState({ value });
+  }
+
   render() {
     return (
       <div className="App">
-        <a href="#" onClick={this.click}>click</a>
+        <input type="text" onChange={this.update} />
+        <button onClick={this.click}>add</button>
         <Jeanne clothes={['bob']} />
       </div>
     );
