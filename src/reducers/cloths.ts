@@ -1,26 +1,38 @@
-// import { ApplicationState } from '../store';
-
 import { ClothState } from '../store';
+
+enum actions { 'ADD_CLOTH', 'ADD_JANNOU_CLOTH' }
 
 export const clothsActions = {
     addCloth: (cloth: string) => (dispatch: (action: any) => void) => {
         dispatch({
-            type: 'ADD_CLOTH',
+            type: actions.ADD_CLOTH,
+            cloth
+        });
+    },
+    addJannouCloth: (cloth: string) => (dispatch: (action: any) => void) => {
+        dispatch({
+            type: actions.ADD_JANNOU_CLOTH,
             cloth
         });
     }
 };
 
-const defaultClothes: string[] = [];
-const initialState: ClothState = { clothes: defaultClothes };
+const initialState: ClothState = {
+    jannouClothes: [],
+    clothes: []
+};
 
 const clothsReducer = (state = initialState, action: any) => {
     switch (action.type) {
-        case 'ADD_CLOTH':
-            const clothes = [...state.clothes, action.cloth];
+        case actions.ADD_CLOTH:
             return {
                 ...state,
-                clothes
+                clothes: [...state.clothes, action.cloth]
+            };
+        case actions.ADD_JANNOU_CLOTH:
+            return {
+                ...state,
+                jannouClothes: [...state.jannouClothes, action.cloth]
             };
         default:
             return state;
